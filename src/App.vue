@@ -1,12 +1,14 @@
 <template>
-
+ <Field/>
 </template>
 
 <script>
+import Field from './components/Field.vue'
+
 export default {
   name: 'App',
   components: {
-
+    Field
   }
 }
 </script>
@@ -18,6 +20,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 </style>
