@@ -1,11 +1,11 @@
 <template>
     <div id="Field">
-        <Player/>
+        <Player player_side="left" @playerTouched="dragMouseDown"/>
         <div id="mid">
             <Ball/>
             <Barrier/>
         </div>
-        <Player/>
+        <Player player_side="right" @playerTouched="dragMouseDown"/>
     </div>
 </template>
 
@@ -19,6 +19,16 @@ export default {
         Barrier,
         Player,
         Ball
+    },
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
+        dragMouseDown(player_side){
+            console.log(player_side);
+        }
     }
 }
 </script>
