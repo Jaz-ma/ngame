@@ -22,12 +22,37 @@ export default {
     },
     data(){
         return{
-            
+            pos1: 0,
+            pos2: 0,
+            pos3: 0,
+            pos4: 0,
         }
     },
     methods:{
-        dragMouseDown(player_side){
-            console.log(player_side);
+        dragMouseDown(event,player_side){
+            event = event || window.event;
+            event.preventDefault;
+            // get the mouse cursor position at startup:
+            this.pos3 = event.clientX;
+            console.log(this.pos3)
+            document.onmouseup = this.closeDragElement
+            document.addEventListener("mousemove", this.elementDrag)
+        },
+
+        closeDragElement(){
+           document.removeEventListener("mousemove", this.elementDrag)
+        },
+
+        elementDrag(e){
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            this.pos1 = this.pos3 - e.clientX;
+            this.pos3 = e.clientX;
+            console.log(this.pos3)
+            // set the element's new position:
+            // elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";console.log('hey')
         }
     }
 }

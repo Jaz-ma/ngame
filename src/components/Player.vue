@@ -20,9 +20,9 @@ export default {
         }
     },
     methods:{
-        mousedown(){
+        mousedown(event){
             
-            this.$emit('playerTouched',this.player_side)
+            this.$emit('playerTouched',event,this.player_side)
         }
     },
 }
