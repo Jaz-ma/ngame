@@ -1,11 +1,11 @@
 <template>
     <div id="Field">
-        <Player player_side="left" @playerTouched="dragMouseDown"/>
+        <Player player_side="left" />
         <div id="mid">
             <Ball/>
             <Barrier/>
         </div>
-        <Player player_side="right" @playerTouched="dragMouseDown"/>
+        <Player player_side="right" />
     </div>
 </template>
 
@@ -29,31 +29,7 @@ export default {
         }
     },
     methods:{
-        dragMouseDown(event,player_side){
-            event = event || window.event;
-            event.preventDefault;
-            // get the mouse cursor position at startup:
-            this.pos3 = event.clientX;
-            console.log(this.pos3)
-            document.onmouseup = this.closeDragElement
-            document.addEventListener("mousemove", this.elementDrag)
-        },
-
-        closeDragElement(){
-           document.removeEventListener("mousemove", this.elementDrag)
-        },
-
-        elementDrag(e){
-            e = e || window.event;
-            e.preventDefault();
-            // calculate the new cursor position:
-            this.pos1 = this.pos3 - e.clientX;
-            this.pos3 = e.clientX;
-            console.log(this.pos3)
-            // set the element's new position:
-            // elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";console.log('hey')
-        }
+        
     }
 }
 </script>
