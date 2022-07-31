@@ -43,6 +43,7 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content:center;
+    border: solid black 2px;
 }
 #mid{
     height: 100%;

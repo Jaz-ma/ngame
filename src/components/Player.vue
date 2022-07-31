@@ -20,7 +20,7 @@ export default {
         }
     },
     methods:{
-      dragMouseDown(event,player_side){
+      dragMouseDown(event){
             event = event || window.event;
             event.preventDefault;
             // get the mouse cursor position at startup:
@@ -46,21 +46,43 @@ export default {
             this.pos3 = e.clientX;
             
             // set the element's new position:
-            if (rect.left > Barrier.right && this.pos1 < 100 && rect.right < Field.right )
+            if(this.player_side =="right")
             {
-             player.style.left = (player.offsetLeft - this.pos1) + "px"
-            }
-            else
-            {
-                if(rect.right > Field.right)
-             player.style.left = (player.offsetLeft - 1) + "px"
+                if (rect.left > Barrier.right && Math.abs(this.pos1) < 30 && rect.right < Field.right )
+                {
+                    player.style.left = (player.offsetLeft - this.pos1) + "px"
+                }
+                else
+                {
+                    if(rect.right > Field.right)
+                player.style.left = (player.offsetLeft - 0.8) + "px"
 
-                if(rect.left < Barrier.right)
-             player.style.left = (player.offsetLeft + 1) + "px"
+                    if(rect.left < Barrier.right)
+                player.style.left = (player.offsetLeft + 0.8) + "px"
             }
-            console.log("player: " ,rect.left)
-            console.log("Field: " ,Field.right)
-            console.log("barrier: " ,Barrier.right)
+
+            }
+            else if(this.player_side =="left")
+            {
+                console.log(this.player_side)
+                if (rect.right < Barrier.left && Math.abs(this.pos1) < 30 && rect.left > Field.left )
+                {
+                     player.style.left = (player.offsetLeft - this.pos1) + "px"
+                }
+                else
+                {
+                    if(rect.left > Field.left)
+                        player.style.left = (player.offsetLeft - 0.8) + "px"
+
+                    if(rect.right < Barrier.left)
+                        player.style.left = (player.offsetLeft + 0.8) + "px"
+            }
+            } 
+
+
+            // console.log("player: " ,rect.left)
+            // console.log("Field: " ,Field.right)
+            // console.log("barrier: " ,Barrier.right)
         }
     },
 }
