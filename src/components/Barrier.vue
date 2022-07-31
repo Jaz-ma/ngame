@@ -1,5 +1,5 @@
 <template>
-    <div id="barrier"></div>
+    <div ref="barrier" id="barrier"></div>
 </template>
 
 <script>

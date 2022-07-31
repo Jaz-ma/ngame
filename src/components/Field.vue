@@ -1,11 +1,11 @@
 <template>
     <div id="Field">
-        <Player player_side="left" />
+        <Player player_side="left" style="left: 100px" />
         <div id="mid">
             <Ball/>
             <Barrier/>
         </div>
-        <Player player_side="right" />
+        <Player player_side="right" style="right: 100px;" />
     </div>
 </template>
 
@@ -36,12 +36,13 @@ export default {
 
 <style scoped>
 #Field{
+    position: relative;
     width: 50%;
     height: 43%;
     background: blue;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
+    justify-content:center;
 }
 #mid{
     height: 100%;

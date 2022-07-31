@@ -38,14 +38,29 @@ export default {
             e = e || window.event;
             e.preventDefault();
             // calculate the new cursor position:
+            let player = this.$refs.player
+            let rect = player.getBoundingClientRect()
+            let Barrier = document.getElementById('barrier').getBoundingClientRect()
+            let Field = document.getElementById('Field').getBoundingClientRect()
             this.pos1 = this.pos3 - e.clientX;
             this.pos3 = e.clientX;
-            console.log(this.pos3)
-            let player = this.$refs.player
-            console.log(player)
+            
             // set the element's new position:
-            // elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";console.log('hey')
+            if (rect.left > Barrier.right && this.pos1 < 100 && rect.right < Field.right )
+            {
+             player.style.left = (player.offsetLeft - this.pos1) + "px"
+            }
+            else
+            {
+                if(rect.right > Field.right)
+             player.style.left = (player.offsetLeft - 1) + "px"
+
+                if(rect.left < Barrier.right)
+             player.style.left = (player.offsetLeft + 1) + "px"
+            }
+            console.log("player: " ,rect.left)
+            console.log("Field: " ,Field.right)
+            console.log("barrier: " ,Barrier.right)
         }
     },
 }
@@ -53,6 +68,7 @@ export default {
 
 <style scoped>
 .player{
+    position: absolute;
     width: 10%;
     height: 4%;
     margin-bottom: 1.5rem;
