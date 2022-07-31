@@ -34,6 +34,10 @@ export default {
            document.removeEventListener("mousemove", this.elementDrag)
         },
 
+
+            // this function needs improving, player block can phase outside the borders a bit 
+
+
         elementDrag(e){
             e = e || window.event;
             e.preventDefault();
@@ -44,7 +48,7 @@ export default {
             let Field = document.getElementById('Field').getBoundingClientRect()
             this.pos1 = this.pos3 - e.clientX;
             this.pos3 = e.clientX;
-            
+
             // set the element's new position:
             if(this.player_side =="right")
             {

@@ -3,10 +3,27 @@
 </template>
 
 <script>
+import { watch } from '@vue/runtime-core'
 
 export default {
     name: 'Ball',
-
+    props:{
+        Game_started:{
+            type: Boolean,
+        }
+    },
+    watch:{
+        Game_started()
+        {
+            this.animateBall()
+        }
+    },
+    methods:{
+        animateBall()
+        {
+            alert('game started')
+        }
+    }
 }
 </script>
 

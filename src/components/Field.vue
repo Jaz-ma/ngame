@@ -1,8 +1,8 @@
 <template>
-    <div id="Field">
+    <div id="Field" @click="startgame">
         <Player player_side="left" style="left: 100px" />
         <div id="mid">
-            <Ball/>
+            <Ball :Game_started="Game_started" />
             <Barrier/>
         </div>
         <Player player_side="right" style="right: 100px;" />
@@ -26,10 +26,15 @@ export default {
             pos2: 0,
             pos3: 0,
             pos4: 0,
+            Game_started: false,
+
         }
     },
     methods:{
-        
+        startgame()
+        {
+            this.Game_started = true
+        }
     }
 }
 </script>
