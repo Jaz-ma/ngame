@@ -21,7 +21,13 @@ export default {
     methods:{
         animateBall()
         {
-            alert('game started')
+            let ball = document.getElementById('ball')
+            let ball_pos = ball.getBoundingClientRect()
+            let ball_x =ball_pos.left
+            let ball_y =ball_pos.top
+
+            ball.style.left = ball_x  + 'px'
+            console.log(ball_x)
         }
     }
 }
@@ -29,6 +35,7 @@ export default {
 
 <style scoped>
     #ball{
+        position: relative;
         background: black;
         margin-top: 5px;
         border: 1px solid gray;
